@@ -27,7 +27,7 @@ Route::get('/post/create', 'PostController@create')->middleware('auth');
 
 Route::post('/post/create', 'PostController@store')->middleware('auth');
 
-Route::get('/post/{post}', 'PostController@view');
+Route::get('/post/{post}', 'PostController@view')->name('about');
 
 Route::get('/post/{post}/edit', 'PostController@edit');
 

@@ -8,20 +8,20 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav align-items-center">
             <li class="nav-item active">
-                <a class="nav-link" href="{{url('')}}">Home</a>
+                <a class="nav-link {{request()->segment(1) == '' ? 'active' : ''}}" href="{{url('')}}">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{url('posts')}}">Posts</a>
+                <a class="nav-link {{request()->segment(1) == 'post' || request()->segment(1) == 'posts' ? 'active' : ''}}" href="{{url('posts')}}">Posts</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{url('users')}}">Users</a>
+                <a class="nav-link {{request()->segment(1) == 'user' || request()->segment(1) == 'users' ? 'active' : ''}}" href="{{url('users')}}">Users</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{url('contact')}}">Contact Us</a>
+                <a class="nav-link {{request()->segment(1) == 'contact' ? 'active' : ''}}" href="{{url('contact')}}">Contact Us</a>
             </li>
             @if (Auth::check())
             <li class="nav-item">
-                <a class="nav-link" href="{{url('profile')}}">Profile</a>
+                <a class="nav-link {{request()->segment(1) == 'profile' ? 'active' : ''}}" href="{{url('profile')}}">Profile</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();"> Logout</a>
@@ -32,11 +32,11 @@
             </li>
             @else
             <li class="nav-item">
-                <a class="nav-link" href="{{url('login')}}">Login</a>
+                <a class="nav-link {{request()->segment(1) == 'login' ? 'active' : ''}}" href="{{url('login')}}">Login</a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="{{url('register')}}">Create Account</a>
+                <a class="nav-link {{request()->segment(1) == 'register' ? 'active' : ''}}" href="{{url('register')}}">Create Account</a>
             </li>
             @endif
         </ul>

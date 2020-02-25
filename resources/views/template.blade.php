@@ -10,7 +10,7 @@
 
     <body>
 
-    <div class="ws-message position-fixed <?= (session('success') ? "ws-message-visible" : "") ?>">
+        <div class="ws-message position-fixed <?= (session('success') ? "ws-message-visible" : "") ?>">
             <div class="d-flex position-relative align-items-center">
                 <i class="fas fa-times-circle close-message"></i>
                 <i class="fas fa-smile-wink message-icon"></i>
@@ -19,6 +19,10 @@
         </div>
         <div class="ws-navbar-container fixed-top">
             @include('_navigation')
+        </div>
+
+        <div class="scroll-button">
+            <i class="fa fa-chevron-down"></i>
         </div>
 
 

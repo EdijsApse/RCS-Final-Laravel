@@ -348,6 +348,62 @@ WS.ImageChange = function()
     }
 }
 
+WS.PageScroller = function()
+{
+    this.init = function(scrollButton)
+    {
+        this.scrollButton = scrollButton;
+        this.scrollToBottom = true;
+        this.screenHeight = $('html').height();
+
+        if (window.scrollY > this.screenHeight / 6) {
+
+            this.scrollToBottom = false;
+        }
+
+        $(this.scrollButton).on('click', function(){
+            this.scrollPage();
+        }.bind(this));
+
+        $(window).on('scroll', function(e){
+            this.currentYPosition = e.currentTarget.scrollY;
+            this.changeDirection();
+        }.bind(this));
+    }
+
+    this.scrollPage = function()
+    {
+        if (this.scrollToBottom) {
+            $('html, body').animate({
+                scrollTop: $('html').height()
+             }, 2000);
+        } else {
+            $('html, body').animate({
+                scrollTop: 0
+             }, 2000);
+        }
+    }
+
+    this.changeDirection = function()
+    {
+        if (this.screenHeight / 6 < this.currentYPosition) {
+            this.scrollToBottom = false;
+        } else {
+            this.scrollToBottom = true;
+        }
+        this.toggleButtons();
+    }
+
+    this.toggleButtons = function()
+    {
+        if (this.scrollToBottom) {
+            $('.fa-chevron-down').removeClass('rotated');
+        } else {
+            $('.fa-chevron-down').addClass('rotated');
+        }
+    }
+}
+
 
 $(document).ready(function(){
     var message = new WS.Message;
@@ -371,6 +427,9 @@ $(document).ready(function(){
         var imageChange = new WS.ImageChange;
         imageChange.init($(this));
     })
+
+    var pageScroller = new WS.PageScroller;
+    pageScroller.init($('.scroll-button'));
 
 
 })
