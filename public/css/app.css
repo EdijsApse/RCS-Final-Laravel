@@ -11516,22 +11516,28 @@ a {
 }
 
 .post .post-link {
-  font-size: 15px;
+  font-size: 12px;
   font-weight: 400;
   cursor: pointer;
   transition: all 0.3s;
   margin-right: 5px;
-  color: #9c9c9c !important;
+  color: #FFC94B !important;
+  border-color: #FFC94B;
   text-decoration: none;
+  padding: 5px 10px !important;
+  text-align: center;
+  border-width: 1px;
+  border-style: solid;
+  margin-bottom: 15px;
+  margin-top: 5px;
+}
+
+.post .post-link:focus {
+  color: #FFF !important;
 }
 
 .post .post-link:hover {
-  color: #383838 !important;
-}
-
-.post .post-link:after {
-  content: ">>";
-  margin-left: 10px;
+  color: #FFF !important;
 }
 
 .post .post-place {
@@ -11558,6 +11564,20 @@ a {
   font-size: 12px;
   font-family: "Montserrat", sans-serif;
   color: #FFF;
+}
+
+.post .post-stats {
+  margin-top: 5px;
+}
+
+.post .post-stats i {
+  font-size: 20px;
+  color: #FFC94B;
+  margin-right: 10px;
+}
+
+.post .post-stats span {
+  font-size: 16px;
 }
 
 .big-post-page {
@@ -11598,6 +11618,19 @@ a {
   display: block;
   content: "";
   margin: 30px 0px;
+}
+
+.big-post-page .post-details .post-like-button {
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.big-post-page .post-details .post-like-button:hover {
+  color: #FFC94B;
+}
+
+.big-post-page .post-details .liked {
+  color: #FFC94B !important;
 }
 
 .big-post-page .post-details i {

@@ -31,7 +31,9 @@ Route::get('/post/{post}', 'PostController@view');
 
 Route::get('/post/{post}/edit', 'PostController@edit');
 
-Route::post('/post/{post}', 'PostController@update');
+Route::post('/post/{post}', 'PostController@update')->middleware('auth');;
+
+Route::post('/post/{post}/like', 'PostController@like')->middleware('auth');
 
 Route::post('/post/{post}/comment', 'PostController@commentPost')->middleware('auth');
 

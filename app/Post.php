@@ -67,6 +67,24 @@ class Post extends Model
     }
 
     /**
+     *
+     * @return bool True if user can like post!
+     *
+     */
+    public function canBeLiked()
+    {
+        if ($this->user_id == Auth::id()) {
+            return false;
+        }
+
+        if ($this->likes()->where('user_id', Auth::id())->exists()) {
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
      * Get the author of the post.
      *
      * @return User Model

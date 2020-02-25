@@ -143,19 +143,25 @@
     }
 
     .post-link {
-        font-size: 15px;
+        font-size: 12px;
         font-weight: 400;
         cursor: pointer;
         transition: all 0.3s;
         margin-right: 5px;
-        color: $textColor !important;
+        color: $yellow !important;
+        border-color: $yellow;
         text-decoration: none;
-        &:hover {
-            color: #383838 !important;
+        padding: 5px 10px !important;
+        text-align: center;
+        border-width: 1px;
+        border-style: solid;
+        margin-bottom: 15px;
+        margin-top: 5px;
+        &:focus {
+            color: #FFF !important;
         }
-        &:after {
-            content: ">>";
-            margin-left: 10px;
+        &:hover {
+            color: #FFF !important;
         }
     }
 
@@ -180,6 +186,18 @@
             font-size: 12px;
             font-family: $headingFont;
             color: #FFF;
+        }
+    }
+
+    .post-stats {
+        margin-top: 5px;
+        i {
+            font-size: 20px;
+            color: $yellow;
+            margin-right: 10px;
+        }
+        span {
+            font-size: 16px;
         }
     }
 }
@@ -218,6 +236,16 @@
         }
     }
     .post-details {
+        .post-like-button {
+            cursor: pointer;
+            transition: all 0.3s;
+            &:hover {
+                color: $yellow;
+            }
+        }
+        .liked {
+            color: $yellow !important;
+        }
         i{
             font-size: 26px;
             color: $headingColor;

@@ -83,7 +83,10 @@ WS.LoadMore = function()
                             $(clone).find('.example-fullname').attr('href', element.author_link).text(element.author_fullname);
                             $(clone).find('.exmple-title').text(element.title);
                             $(clone).find('.exmple-body').text(element.description);
-                            $(clone).find('.example-read-more').text(element.link);
+                            $(clone).find('.example-read-more').attr('href', element.link);
+                            $(clone).find('.example-like').text(element.likes);
+                            $(clone).find('.example-comment').text(element.comments);
+                            $(clone).find('.example-view').text(element.views);
                             $(clone).find('.post').addClass('visible-posts');
                             $(clone).removeClass('d-none');
                             $(this.postsContainer).append($(clone));
@@ -150,6 +153,54 @@ WS.MenuBackground = function()
     }
 }
 
+WS.PostLikeAction = function()
+{
+    this.init = function(likeButton, likeCount)
+    {
+        this.likeButton = likeButton;
+        this.likeCount = likeCount;
+
+        $(this.likeButton).on('click', this.sendLikeRequest.bind(this));
+    }
+
+    this.sendLikeRequest = function()
+    {
+        $.ajax({
+            method:'POST',
+            url: window.location.href+'/like',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            dataType: "json",
+            success: function(response){
+                if (response.success) {
+                    this.initMessage('One like added to post! Good Job! uthor will be proud!');
+                    $(this.likeCount).text(response.newLikeCount);
+                    $(this.likeButton).addClass('liked');
+                } else {
+                    this.initMessage('Looks like you cant add like to this post!');
+                }
+            }.bind(this),
+            error: function(error) {
+                if (error.status == 401) {
+                    this.initMessage('Please signe in to be able to like posts!');
+                } else {
+                    this.initMessage('Technical issues! Please try again later!');
+                }
+            }.bind(this)
+        });
+    }
+
+    this.initMessage = function(msg)
+    {
+        var message = new WS.Message;
+            message.init($('.ws-message'));
+            message.updateMessage(msg);
+            message.show();
+            message.autoHide();
+    }
+}
+
 
 $(document).ready(function(){
     var message = new WS.Message;
@@ -160,4 +211,9 @@ $(document).ready(function(){
 
     var menuBackground = new WS.MenuBackground;
     menuBackground.init();
+
+    var postLike = new WS.PostLikeAction;
+    postLike.init($('.post-like-button'), $('.post-like-count'));
+
+
 })

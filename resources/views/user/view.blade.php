@@ -62,8 +62,22 @@
                                     <h3 class="post-title">{{$post->title}}</h3>
                                     <p class="post-description">{{$post->getShortBody()}}</p>
                                 </div>
-                                <div class="flex justify-self-end justify-content-end">
-                                    <a class="post-link p-2 align-self-end float-right" href="{{$post->getLink()}}">Read More</a>
+                                <div class="post-stats d-flex justify-content-around">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fa fa-eye"></i>
+                                        <span>{{$post->views()->count()}}</span>
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        <i class="fa fa-comment"></i>
+                                        <span>{{$post->comments()->count()}}</span>
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        <i class="fa fa-heart"></i>
+                                        <span>{{$post->likes()->count()}}</span>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-center mt-2">
+                                    <a class="post-link ws-button-link ws-button-yellow" href="{{$post->getLink()}}">Read Post</a>
                                 </div>
                             </div>
                         </div>

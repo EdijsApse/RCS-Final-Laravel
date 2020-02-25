@@ -69,7 +69,7 @@ class PostController extends Controller
 
         return view('post.view', [
             'post' => $post,
-            'nextPosts' => Post::take(3)->orderBy('id', 'desc')->get()
+            'nextPosts' => Post::inRandomOrder()->limit(3)->get()
         ]);
     }
 
@@ -93,6 +93,22 @@ class PostController extends Controller
         $post->comments()->create(array_merge($data, ['user_id' => Auth::id()]));
 
         return redirect($post->getLink())->withSuccess('You commnted post! Checkout next post!');
+    }
+
+    public function like(Post $post)
+    {
+        if ($post->canBeLiked()) {
+            $post->likes()->create(['user_id' => Auth::id()]);
+            return [
+                'success' => true,
+                'error' => false,
+                'newLikeCount' => $post->likes()->count()
+            ];
+        }
+
+        return [
+            'success' => false
+        ];
     }
 
     /**

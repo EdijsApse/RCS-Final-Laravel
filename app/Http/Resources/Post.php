@@ -21,7 +21,10 @@ class Post extends JsonResource
             'author_fullname' => $this->user->getFullname(),
             'title' => $this->title,
             'description' => $this->getShortBody(),
-            'link' => $this->getLink()
+            'link' => $this->getLink(),
+            'likes' => $this->likes()->count(),
+            'comments' => $this->comments()->count(),
+            'views' => $this->views()->count(),
         ];
     }
 }
