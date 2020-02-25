@@ -201,6 +201,136 @@ WS.PostLikeAction = function()
     }
 }
 
+WS.Validator = function()
+{
+    this.init = function(form)
+    {
+
+        this.form = form;
+        this.message = '';
+        this.input = {};
+        this.errors = [];
+
+        $(this.form).find('input, textarea').each(function(index, element){
+            $(element).on('keyup', function(){
+                this.input.element = element;
+                this.input.index = index;
+                this.validateInput();
+            }.bind(this));
+        }.bind(this));
+
+        $(this.form).on('submit', function(e){
+            this.triggerInputChanges();
+            this.errors.forEach(function(isError){
+                if (isError) {
+                    e.preventDefault();
+                }
+            })
+
+        }.bind(this));
+    }
+
+    this.triggerInputChanges = function()
+    {
+        $(this.form).find('input, textarea').each(function(){
+            $(this).trigger('keyup');
+        });
+    }
+
+    this.validateInput = function()
+    {
+        let minLength = $(this.input.element).data('min-length');
+        let email = $(this.input.element).data('email');
+        let passwordConfirm = $(this.input.element).data('password-confirm');
+        let value = $(this.input.element).val();
+        if (minLength) {
+            if (minLength > value.length) {
+                this.message = `Atleast ${minLength} characters expected`;
+                this.showMessage();
+
+                this.errors[this.input.index] = true;
+            } else {
+                this.hideMessage();
+                this.errors[this.input.index] = false;
+            }
+        }
+
+        if (email) {
+            if (!this.isEmail()) {
+                this.message = 'Looks like email is not valid!';
+                this.showMessage();
+                this.errors[this.input.index] = true;
+            } else {
+                this.hideMessage();
+                this.errors[this.input.index] = false;
+            }
+        }
+
+        if (passwordConfirm) {
+            if (!this.isPasswordCorrect()) {
+                this.message = 'Looks like passwords doesnt match!';
+                this.showMessage();
+                this.errors[this.input.index] = true;
+            } else {
+                this.hideMessage();
+                this.errors[this.input.index] = false;
+            }
+        }
+
+
+
+    }
+
+    this.isPasswordCorrect = function()
+    {
+        let originalPass = $('input[name="password"]').val();
+        if (originalPass == $(this.input.element).val()) {
+            return true;
+        }
+        return false;
+    }
+
+    this.showMessage = function()
+    {
+        $(this.input.element).siblings('.error-message').children('p').text(this.message);
+        $(this.input.element).siblings('.hidden-error-message').removeClass('hidden-error-message');
+    }
+
+    this.hideMessage = function()
+    {
+        $(this.input.element).siblings('.error-message').addClass('hidden-error-message');
+    }
+
+    this.isEmail = function()
+    {
+        //edijsapse@gmail.com
+        let splitedEmail = $(this.input.element).val().split('@');//['edijsapse', 'gmail.com']
+
+        if (splitedEmail.length != 2) {
+            return false
+        }
+
+        let afterSymbol = splitedEmail[1].split('.');//gmail.com
+        let beforeSymbol = splitedEmail[0];//edijsapse
+
+        if (!beforeSymbol.length) {
+            return false;
+        }
+
+        if (afterSymbol.length != 2) {
+            return false
+        }
+
+        let afterDot = afterSymbol[1]; //.com
+
+        if (afterDot.length < 2) {
+            return false;
+        }
+
+        return true;
+    }
+}
+
 
 $(document).ready(function(){
     var message = new WS.Message;
@@ -214,6 +344,11 @@ $(document).ready(function(){
 
     var postLike = new WS.PostLikeAction;
     postLike.init($('.post-like-button'), $('.post-like-count'));
+
+    $('form').each(function(){
+        var validator =  new WS.Validator();
+        validator.init($(this));
+    })
 
 
 })

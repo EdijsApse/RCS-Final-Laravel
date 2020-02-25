@@ -12,26 +12,22 @@
                 @csrf
                 <div class="form-group">
                     <Label>Enter post title</Label>
-                    <input type="text" name="title" value="{{(old('title') ? old('title') : $post->title)}}" class="ws-input" placeholder="Enter post title...">
-                    @error('title')
-                    <div class="error-message d-flex align-items-center">
+                    <input type="text" name="title" data-min-length="5" value="{{(old('title') ? old('title') : $post->title)}}" class="ws-input" placeholder="Enter post title...">
+                    <div class="error-message d-flex align-items-center {{($errors->first('title') ? "" : "hidden-error-message")}}">
                         <i class="fas fa-exclamation-triangle"></i>
-                        <p>{{ $message }}</p>
+                        <p>{{ ($errors->first('title') ? $errors->first('title') : "") }}</p>
                     </div>
-                    @enderror
                 </div>
 
                 <div class="form-group">
                     <Label>Enter post body</Label>
                     <div class="form-group">
-                        <textarea name="body" placeholder="Enter post content. Dont be shy, write as much as you can..." class="ws-textarea">{{(old('body') ? old('body') : $post->body)}}</textarea>
-                    </div>
-                    @error('body')
-                        <div class="error-message d-flex align-items-center">
+                        <textarea name="body" data-min-length="10" placeholder="Enter post content. Dont be shy, write as much as you can..." class="ws-textarea">{{(old('body') ? old('body') : $post->body)}}</textarea>
+                        <div class="error-message d-flex align-items-center {{($errors->first('body') ? "" : "hidden-error-message")}}">
                             <i class="fas fa-exclamation-triangle"></i>
-                            <p>{{ $message }}</p>
+                            <p>{{ ($errors->first('body') ? $errors->first('body') : "") }}</p>
                         </div>
-                    @enderror
+                    </div>
                 </div>
 
                 <div class="form-group">

@@ -10920,6 +10920,10 @@ a {
   font-family: "Roboto", sans-serif;
 }
 
+.hidden-error-message {
+  display: none !important;
+}
+
 .error-message {
   margin-top: 10px;
 }
@@ -10931,6 +10935,7 @@ a {
 }
 
 .error-message p {
+  text-indent: 0px !important;
   color: #9c9c9c;
   font-family: "Open Sans", sans-serif;
   font-size: 18px;

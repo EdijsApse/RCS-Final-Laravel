@@ -36,13 +36,11 @@
 
                     <form class="ws-form" action="{{$post->getLink()}}/comment" method="post">
                         @csrf
-                        <textarea name="comment" placeholder="Enter your comment..." class="ws-textarea"></textarea>
-                        @error('comment')
-                            <div class="error-message d-flex align-items-center">
-                                <i class="fas fa-exclamation-triangle"></i>
-                                <p>{{ $message }}</p>
-                            </div>
-                        @enderror
+                        <textarea name="comment" data-min-length="10" placeholder="Enter your comment..." class="ws-textarea"></textarea>
+                        <div class="error-message d-flex align-items-center {{($errors->first('comment') ? "" : "hidden-error-message")}}">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <p>{{ ($errors->first('comment') ? $errors->first('comment') : "") }}</p>
+                        </div>
                         <div class="d-flex justify-content-center">
                             <button type="submit" class="btn btn-secondary ws-button">Submit</button>
                         </div>

@@ -13,35 +13,29 @@
                 @csrf
                 <div class="form-group">
                     <Label>Your Name</Label>
-                    <input type="text" name="name" value="{{ (old('name') ? old('name') : $user->name ) }}" class="ws-input" placeholder="Enter your name...">
-                    @error('name')
-                    <div class="error-message d-flex align-items-center">
+                    <input type="text" name="name" data-min-length="4" value="{{ (old('name') ? old('name') : $user->name ) }}" class="ws-input" placeholder="Enter your name...">
+                    <div class="error-message d-flex align-items-center {{($errors->first('name') ? "" : "hidden-error-message")}}">
                         <i class="fas fa-exclamation-triangle"></i>
-                        <p>{{ $message }}</p>
+                        <p>{{ ($errors->first('name') ? $errors->first('name') : "") }}</p>
                     </div>
-                    @enderror
                 </div>
 
                 <div class="form-group">
                     <Label>Your Surname</Label>
-                    <input type="text" name="surname" value="{{ (old('surname') ? old('surname') : $user->surname ) }}" class="ws-input" placeholder="Enter your surname...">
-                    @error('surname')
-                        <div class="error-message d-flex align-items-center">
-                            <i class="fas fa-exclamation-triangle"></i>
-                            <p>{{ $message }}</p>
-                        </div>
-                    @enderror
+                    <input type="text" name="surname" data-min-length="4" value="{{ (old('surname') ? old('surname') : $user->surname ) }}" class="ws-input" placeholder="Enter your surname...">
+                    <div class="error-message d-flex align-items-center {{($errors->first('surname') ? "" : "hidden-error-message")}}">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <p>{{ ($errors->first('surname') ? $errors->first('surname') : "") }}</p>
+                    </div>
                 </div>
 
                 <div class="form-group">
                     <Label>Enter your Email address</Label>
-                    <input type="text" name="email" class="ws-input" value="{{ (old('email') ? old('email') : $user->email ) }}" placeholder="Enter your email address...">
-                    @error('email')
-                    <div class="error-message d-flex align-items-center">
+                    <input type="text" data-email="true" name="email" class="ws-input" value="{{ (old('email') ? old('email') : $user->email ) }}" placeholder="Enter your email address...">
+                    <div class="error-message d-flex align-items-center {{($errors->first('email') ? "" : "hidden-error-message")}}">
                         <i class="fas fa-exclamation-triangle"></i>
-                        <p>{{ $message }}</p>
+                        <p>{{ ($errors->first('email') ? $errors->first('email') : "") }}</p>
                     </div>
-                    @enderror
                 </div>
 
                 <div class="form-group">

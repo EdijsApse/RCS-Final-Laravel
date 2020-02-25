@@ -12,24 +12,20 @@
                 @csrf
                 <div class="form-group">
                     <Label>Your email address</Label>
-                    <input type="text" name="email" class="ws-input" placeholder="Enter your email address...">
-                    @error('email')
-                    <div class="error-message d-flex align-items-center">
+                    <input type="text" data-email="true" name="email" class="ws-input" placeholder="Enter your email address...">
+                    <div class="error-message d-flex align-items-center {{($errors->first('email') ? "" : "hidden-error-message")}}">
                         <i class="fas fa-exclamation-triangle"></i>
-                        <p>{{ $message }}</p>
+                        <p>{{ ($errors->first('email') ? $errors->first('email') : "") }}</p>
                     </div>
-                    @enderror
                 </div>
 
                 <div class="form-group">
                     <Label>Enter your password</Label>
-                    <input type="password" name="password" class="ws-input" placeholder="Enter your password...">
-                    @error('password')
-                        <div class="error-message d-flex align-items-center">
-                            <i class="fas fa-exclamation-triangle"></i>
-                            <p>{{ $message }}</p>
-                        </div>
-                    @enderror
+                    <input type="password" data-min-length="4" name="password" class="ws-input" placeholder="Enter your password...">
+                    <div class="error-message d-flex align-items-center {{($errors->first('password') ? "" : "hidden-error-message")}}">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <p>{{ ($errors->first('password') ? $errors->first('password') : "") }}</p>
+                    </div>
                 </div>
 
                 <div class="d-flex justify-content-center">
