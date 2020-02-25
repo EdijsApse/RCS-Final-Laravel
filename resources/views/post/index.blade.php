@@ -36,7 +36,7 @@
     </div>
     @endif
 
-    <div class="posts">
+    <div class="posts box-shadow-container">
         @if(!count($posts))
             <h2 class="section-title text-center">Looks like there is no posts to show</h2>
         @else

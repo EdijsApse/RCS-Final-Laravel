@@ -99,7 +99,7 @@
 </div>
 
 
-<div class="bg-white pt-5 mb-0 section-container">
+<div class="bg-white pt-5 my-0 section-container">
     <div id="ws-carousel" class="carousel slide" data-ride="carousel">
         <div class="container">
             <div class="carousel-inner">

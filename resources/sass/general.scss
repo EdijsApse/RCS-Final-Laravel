@@ -432,3 +432,46 @@ button, a {
     }
 }
 
+.box-shadow-container {
+    box-shadow: 0px 0px 6px 3px #e7e7e7;
+    background-color: #FFF;
+}
+
+.error-page {
+    text-align: center;
+    h1 {
+        margin-top: 20px;
+        letter-spacing: -10px;
+        font-size: 100px;
+        text-shadow: 6px 6px 3px #e7e7e7;
+        .text-dark {
+            font-family: $headingFont !important;
+            font-weight: 400 !important;
+            color: $headingColor !important;
+        }
+        .text-yellow {
+            font-family: $headingFont !important;
+            color: $yellow !important;
+        }
+    }
+    h3 {
+        color: $headingColor;
+        font-size: 40px;
+        &:after {
+            display: none;
+        }
+        &:last-of-type {
+            &:after {
+                display: block;
+                margin-top: 30px;
+            }
+        }
+    }
+    i {
+        color: $yellow;
+        font-size: 150px !important;
+        margin-top: 10px;
+        margin-bottom: 30px;
+        text-shadow: 6px 6px 3px #e7e7e7;
+    }
+}

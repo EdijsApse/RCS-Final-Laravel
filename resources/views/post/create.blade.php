@@ -6,7 +6,7 @@
 
 <div class="container ws-container">
     <div class="row justify-content-center align-items-center">
-        <div class="col-12 col-lg-6 form-container">
+        <div class="col-12 col-lg-6 form-container box-shadow-container">
             <h3 class="form-title text-center">Create Post</h3>
             <form class="ws-form" action="/post/create" method="post" enctype="multipart/form-data">
                 @csrf
@@ -34,7 +34,7 @@
                     <Label>Select post picture</Label>
                     <div class="ws-file-select-container">
                         <i class="fa fa-image"></i>
-                        <label for="upload-photo">Choose picture</label>
+                        <label class="image-select-description" for="upload-photo">Choose picture</label>
                         <input type="file" name="picture" class="ws-file-select" />
                     </div>
                     @error('picture')

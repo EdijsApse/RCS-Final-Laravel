@@ -4,19 +4,19 @@
 
 @section('main')
 
-<div class="container ws-container bg-white ws-section-padding">
+<div class="container ws-container bg-white ws-section-padding box-shadow-container">
     <h2 class="section-title text-center">Contact Me</h2>
     <div class="row align-items-center">
         <div class="col-12 col-lg-6">
             <div class="map-container">
-                <div class="map">
+                <div class="map box-shadow-container">
                     <iframe  id="gmap_canvas" src="https://maps.google.com/maps?q=Riga%20Coding%20School&t=&z=17&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
                     </iframe>
                 </div>
             </div>
         </div>
         <div class="col-12 col-lg-6 contact-form-container">
-            <form class="ws-form" action="{{url('contact')}}" method="post">
+            <form class="ws-form box-shadow-container py-4 px-5" action="{{url('contact')}}" method="post">
                 @csrf
                 <div class="form-group">
                     <Label>Your name</Label>

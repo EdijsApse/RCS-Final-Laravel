@@ -49,7 +49,7 @@ class PostController extends Controller
             return view('post.update', ['post' => $post]);
         }
 
-        return redirect('posts');//@todo 403
+        return abort(403);
     }
 
     public function update(Post $post, Request $request)

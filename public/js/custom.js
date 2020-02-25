@@ -331,6 +331,23 @@ WS.Validator = function()
     }
 }
 
+WS.ImageChange = function()
+{
+    this.init = function(element)
+    {
+        this.input = element;
+
+        $(this.input).on('change', this.notifyUser.bind(this));
+    }
+
+    this.notifyUser = function()
+    {
+        console.log($(this.input))
+
+        $(this.input).siblings('.image-select-description').text('Image selected!');
+    }
+}
+
 
 $(document).ready(function(){
     var message = new WS.Message;
@@ -348,6 +365,11 @@ $(document).ready(function(){
     $('form').each(function(){
         var validator =  new WS.Validator();
         validator.init($(this));
+    })
+
+    $('input[type="file"]').each(function(){
+        var imageChange = new WS.ImageChange;
+        imageChange.init($(this));
     })
 
 
