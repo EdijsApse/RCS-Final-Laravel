@@ -10899,10 +10899,14 @@ h6 {
 }
 
 p,
-span,
 label {
   font-family: "Open Sans", sans-serif;
   color: #9c9c9c;
+}
+
+span {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
 }
 
 h2:after {
@@ -11313,6 +11317,7 @@ a {
 
 .ws-message {
   opacity: 0;
+  display: none;
   top: 30px;
   left: 30px;
   width: 500px;
@@ -11643,6 +11648,7 @@ a {
 
 .big-post-page h1 {
   font-size: 40px;
+  word-break: break-all;
 }
 
 .big-post-page h1:after {
@@ -11663,6 +11669,7 @@ a {
   font-size: 16px;
   line-height: 30px;
   text-indent: 30px;
+  word-break: break-all;
 }
 
 .big-post-page p:last-of-type:after {
@@ -11729,10 +11736,14 @@ a {
 
 .big-post-page .coment-section .comment .user-image {
   margin-right: 20px;
+  width: 80px;
+  height: 80px;
+  min-width: 80px;
 }
 
 .big-post-page .coment-section .comment .user-image img {
-  width: 100px;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
 }
 
@@ -12000,5 +12011,381 @@ a {
 .user-view-page .user-details .user-stat .stat p {
   font-size: 30px;
   font-weight: 600;
+}
+
+@media only screen and (max-width: 1200px) {
+  .nav-link {
+    font-size: 12px;
+  }
+
+  .intro-container .intro-content {
+    width: 60%;
+  }
+
+  .post-container .post-details {
+    flex-wrap: wrap;
+  }
+
+  .single-statistic h5 {
+    font-size: 12px;
+  }
+
+  .single-statistic p {
+    font-size: 52px !important;
+  }
+
+  #ws-carousel .post-title {
+    margin: 0px 20px !important;
+    font-size: 15px !important;
+  }
+
+  #ws-carousel .post-place {
+    top: 45px !important;
+  }
+
+  .user-container h3 a {
+    word-break: break-all;
+    margin: 0px 20px !important;
+    font-size: 15px !important;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .user-stat .stat h4 {
+    font-size: 14px !important;
+  }
+}
+
+@media only screen and (max-width: 1070px) {
+  .nav-link {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    margin-left: 5px !important;
+    margin-right: 5px !important;
+  }
+
+  .post-place i {
+    font-size: 20px !important;
+  }
+
+  .intro-container .intro-content h1 {
+    font-size: 50px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .intro-container .intro-content h1 span {
+    font-size: 30px !important;
+  }
+
+  .intro-container .intro-content p {
+    font-size: 16px !important;
+  }
+}
+
+@media only screen and (max-width: 990px) {
+  .navbar-toggler {
+    border-color: #FFF !important;
+  }
+
+  .navbar-toggler span {
+    color: #FFF;
+  }
+
+  .navbar-toggler span i {
+    font-size: 24px;
+    margin: 5px;
+  }
+
+  .single-statistic h5 {
+    font-size: 10px !important;
+  }
+
+  .ws-navbar-container {
+    background-color: rgba(0, 0, 0, 0.7) !important;
+    transition: all 0.3s;
+    position: relative !important;
+  }
+
+  .ws-navbar-container .nav-link {
+    color: #FFF !important;
+  }
+
+  .ws-container {
+    margin-top: 50px !important;
+  }
+
+  .ws-img-container {
+    max-height: unset !important;
+  }
+
+  #ws-carousel .row .col-lg-4 {
+    display: none !important;
+  }
+
+  #ws-carousel .row .col-lg-4:first-of-type {
+    display: block !important;
+  }
+
+  #ws-carousel .row .col-lg-4 h3 {
+    font-size: 30px !important;
+  }
+
+  #ws-carousel .row .col-lg-4 h3 a {
+    font-size: 30px !important;
+  }
+
+  #ws-carousel .row .col-lg-4 p {
+    font-size: 16px !important;
+  }
+
+  #ws-carousel .row .col-lg-4 i {
+    font-size: 30px !important;
+  }
+
+  #ws-carousel .row .col-lg-4 span {
+    font-size: 20px !important;
+  }
+
+  #ws-carousel .row .col-lg-4 .post-place {
+    top: 40% !important;
+  }
+
+  #ws-carousel .row .col-lg-4 .post-place i {
+    margin-top: 15px !important;
+  }
+
+  #ws-carousel .row .col-lg-4 .post-place span {
+    margin-bottom: 15px !important;
+  }
+
+  #ws-carousel .row .col-lg-4 .ws-button-link {
+    font-size: 16px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  .post-page .post-container a {
+    font-size: 16px !important;
+  }
+
+  .post-page .post-container span {
+    font-size: 16px !important;
+  }
+
+  .big-post-page h1 {
+    text-align: center;
+  }
+
+  .big-post-page h1:after {
+    width: 200px !important;
+    margin: 20px auto !important;
+    margin-bottom: 30px !important;
+  }
+
+  .big-post-page .col-lg-8 .row {
+    justify-content: center;
+  }
+
+  .big-post-page .next-post-title {
+    font-size: 26px !important;
+    text-align: center !important;
+  }
+
+  .big-post-page .next-post-title:after {
+    width: 200px !important;
+    margin: 20px auto;
+    margin-bottom: 30px !important;
+  }
+
+  .big-post-page .posts .post-container a {
+    font-size: 16px !important;
+  }
+
+  .big-post-page .posts .post-container span {
+    font-size: 16px !important;
+  }
+
+  .big-post-page .posts h3 {
+    text-align: center !important;
+    font-size: 18px !important;
+  }
+
+  .big-post-page .posts .post-stats i {
+    font-size: 30px !important;
+  }
+
+  .big-post-page .posts .post-stats span {
+    font-size: 30px !important;
+  }
+
+  .user-page .user-statistic {
+    justify-content: space-around !important;
+  }
+
+  .user-page .user-container a {
+    font-size: 20px !important;
+  }
+
+  .contact-page .contact-row {
+    justify-content: center !important;
+    flex-direction: column-reverse !important;
+  }
+
+  .contact-page .map-container {
+    padding: 28px !important;
+  }
+
+  .user-page .user-stat .stat h4 {
+    font-size: 16px !important;
+  }
+
+  .user-page .post-container a {
+    font-size: 16px !important;
+  }
+
+  .user-page .post-container span {
+    font-size: 16px !important;
+  }
+
+  .user-page h3 {
+    text-align: center !important;
+    font-size: 18px !important;
+  }
+
+  .user-page .post-stats i {
+    font-size: 30px !important;
+  }
+
+  .user-page .post-stats span {
+    font-size: 30px !important;
+  }
+}
+
+@media only screen and (max-width: 830px) {
+  .intro-buttons a {
+    margin-left: 0px !important;
+    margin-top: 20px !important;
+  }
+
+  .gloabl-statistics {
+    padding-top: 30px !important;
+    padding-bottom: 15px !important;
+  }
+
+  .gloabl-statistics .single-statistic {
+    margin: 0px !important;
+    margin-bottom: 15px !important;
+  }
+
+  .gloabl-statistics .single-statistic:nth-last-child(2) {
+    border: none !important;
+  }
+
+  .post-page .post-col .p-4 {
+    padding: 10px !important;
+  }
+
+  .post-page .post-col h2 {
+    font-size: 20px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .post-page .post-col span {
+    font-size: 14px !important;
+  }
+
+  .post-page .post-col a {
+    font-size: 14px !important;
+  }
+
+  .post-page .post-col i {
+    font-size: 18px !important;
+  }
+
+  .post-page .post-col .ws-button-link {
+    padding: 5px 10px !important;
+    font-size: 14px !important;
+  }
+
+  .ws-absolute-position-link {
+    position: relative !important;
+    top: 0px !important;
+    right: 0px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .post-title {
+    text-align: center !important;
+  }
+
+  .user-page .user-details .ws-button-link {
+    padding: 0px !important;
+    padding: 10px 10px !important;
+    width: 55px !important;
+    min-width: 55px !important;
+  }
+
+  .user-page .user-details .ws-button-link span {
+    display: none !important;
+  }
+
+  .user-page .user-details .ws-button-link i {
+    display: block !important;
+    font-size: 30px !important;
+  }
+
+  .intro-container .intro-content {
+    width: 100% !important;
+  }
+}
+
+@media only screen and (max-width: 830px) {
+  .big-post-page .coment-section .comment {
+    margin: 0px !important;
+    margin-top: 30px !important;
+  }
+}
+
+@media only screen and (max-width: 552px) {
+  #ws-carousel .row .col-12 .post-place i {
+    margin-top: 20px !important;
+  }
+
+  #ws-carousel .row .col-12 .post-place span {
+    margin-bottom: 20px !important;
+  }
+
+  .ws-message {
+    width: 360px;
+  }
+
+  .ws-message p {
+    font-size: 12px !important;
+  }
+
+  .ws-message .message-icon {
+    font-size: 30px !important;
+  }
+
+  .navbar {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+  }
+
+  .big-post-page .col-12 h1 {
+    font-size: 20px !important;
+  }
+
+  .big-post-page .coment-section .comment .user-image {
+    min-width: 50px !important;
+    width: 50px !important;
+    height: 50px !important;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .col-12 {
+    padding: 0px !important;
+  }
 }
 

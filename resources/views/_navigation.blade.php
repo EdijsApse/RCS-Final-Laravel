@@ -1,9 +1,9 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-transparent px-5 mx-5">
     <a class="navbar-brand" href="{{url('')}}">
-        <img class="sites-logo" src="/img/logo.png" alt="Workshop Logo"/>
+        <img class="sites-logo box-shadow-container rounded-circle" src="/img/logo.png" alt="Workshop Logo"/>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+        <span><i class="fa fa-bars"></i></span>
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav align-items-center">

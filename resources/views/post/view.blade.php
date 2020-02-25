@@ -6,7 +6,7 @@
 
 <div class="container-fluid ws-container">
     <div class="big-post-page">
-        <div class="row justify-content-between position-relative">
+        <div class="row justify-content-center position-relative">
 
             @if($post->user_id == Auth::id())
                 <a href="{{$post->getLink().'/edit'}}" class="btn btn-secondary ws-button-link position-absolute ws-absolute-position-link">Edit Post</a>
@@ -73,7 +73,7 @@
             </div>
 
             @if(count($nextPosts))
-            <div class="col-12 col-lg-3">
+            <div class="col-12 col-lg-3 col-md-8 col-sm-8">
                 <h4 class="next-post-title">Read Next</h4>
                 <div class="posts">
                     @foreach ($nextPosts as $post)

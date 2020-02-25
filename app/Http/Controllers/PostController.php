@@ -87,7 +87,7 @@ class PostController extends Controller
     public function commentPost(Post $post, Request $request) {
         //If validator fails, returns redirect back with error bag
         $data = $request->validate([
-            'comment' => 'required|min:5|max:255',
+            'comment' => 'required|min:5',
         ]);
 
         $post->comments()->create(array_merge($data, ['user_id' => Auth::id()]));
@@ -119,7 +119,7 @@ class PostController extends Controller
     protected function validator(Request $request)
     {
         $data = $request->validate([
-            'title' => 'required|min:5|max:255',
+            'title' => 'required|min:5',
             'body' => 'required|min:10',
             'picture' => 'image|mimes:jpeg,png,jpg,gif,svg'
         ]);

@@ -24,7 +24,7 @@ WS.Message = function()
 
     this.show = function()
     {
-        $(this.element).animate({opacity: 1}, this.animationTime);
+        $(this.element).fadeIn('fast').animate({opacity: 1}, this.animationTime);
     }
 
     this.updateMessage = function(msg)
@@ -34,7 +34,7 @@ WS.Message = function()
 
     this.hide = function()
     {
-        $(this.element).animate({opacity: 0}, this.animationTime);
+        $(this.element).fadeOut('fast').animate({opacity: 0}, this.animationTime);
     }
 
     this.autoHide = function()

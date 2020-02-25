@@ -4,7 +4,7 @@
 
 @section('main')
 
-<div class="container-fluid ws-container">
+<div class="container-fluid ws-container user-page">
     <div class="user-view-page">
         <div class="row justify-content-between">
             <div class="col-12 col-lg-12">
@@ -17,7 +17,7 @@
                             </div>
                         </div>
                         @if($user->id == Auth::id())
-                            <a href="{{url('profile/edit')}}" class="btn btn-secondary ws-button-link position-absolute">Edit Profile</a>
+                            <a href="{{url('profile/edit')}}" class="btn btn-secondary ws-button-link position-absolute"><span>Edit Profile</span><i class="fa fa-cog d-none"></i></a>
                         @endif
                     </div>
                     <div class="d-flex justify-content-center user-stat w-100">
@@ -49,7 +49,7 @@
                         <h2 class="section-title text-center">Users posts</h2>
                     </div>
                     @foreach($user->posts as $post)
-                        <div class="col-12 col-lg-3">
+                        <div class="col-12 col-lg-3 col-md-6 col-sm-8">
                             <div class="d-flex flex-column post">
                                 <div class="ws-img-container">
                                     <img src="{{$post->getPicture()}}" class="img-fluid w-100 h-auto">

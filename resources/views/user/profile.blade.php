@@ -5,7 +5,7 @@
 
 @section('main')
 
-<div class="container ws-container">
+<div class="container ws-container profile-page">
     <div class="row justify-content-center align-items-center">
         <div class="col-12 col-lg-6 form-container box-shadow-container">
             <h3 class="form-title text-center">{{$user->getFullname()}}</h3>

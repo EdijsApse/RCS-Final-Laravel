@@ -44,10 +44,10 @@
                 <div class="col-12">
                     <h2 class="section-title text-center">All posts</h2>
                 </div>
-
-                <a href="{{url('post/create')}}" class="btn btn-secondary ws-button-link position-absolute ws-absolute-position-link">Create Post</a>
-
-                    <div id="post-example" class="col-12 col-lg-3 d-none">
+                @if(Auth::check())
+                    <a href="{{url('post/create')}}" class="btn btn-secondary ws-button-link position-absolute ws-absolute-position-link">Create Post</a>
+                @endif
+                    <div id="post-example" class="col-12 col-lg-3 col-md-6 d-none">
                         <div class="d-flex flex-column post">
 
                             <div class="ws-img-container">
@@ -83,7 +83,7 @@
                     </div>
 
                 @foreach($posts as $post)
-                    <div class="col-12 col-lg-3">
+                    <div class="col-12 col-lg-3 col-md-6 col-sm-10">
                         <div class="d-flex flex-column post visible-posts">
 
                             <div class="ws-img-container">

@@ -27,7 +27,7 @@
         <footer class="py-5 ws-footer">
             <div class="container-fluid">
                 <div class="row justify-content-center">
-                    <div class="col-6 text-center">
+                    <div class="col-6 col-12 text-center">
                         <img src="/img/logo.png" class="logo" alt="Websites logo" />
                         <div class="d-flex justify-content-center footer-menu">
                             <a class="nav-link" href="{{url('')}}">Home</a>

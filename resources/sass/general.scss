@@ -7,9 +7,14 @@ h1, h2, h3, h4, h5, h6 {
     color: $headingColor;
 }
 
-p, span, label {
+p, label {
     font-family: $textFont;
     color: $textColor
+}
+
+span {
+    font-family: $headingFont;
+    font-weight: 400;
 }
 
 h2:after {
@@ -394,6 +399,7 @@ button, a {
 
 .ws-message {
     opacity: 0;
+    display: none;
     top: 30px;
     left: 30px;
     width: 500px;

@@ -32,7 +32,7 @@
 
     <div class="row posts justify-content-center">
         @foreach ($latestPosts as $post)
-            <div class="col-12 col-lg-3">
+            <div class="col-10 col-lg-3 col-md-6 col-sm-8">
                 <div class="d-flex flex-column post">
                     <div class="ws-img-container">
                         <img src="{{$post->getPicture()}}" class="img-fluid w-100 h-auto">
@@ -74,24 +74,24 @@
 
 <div class="container-fluid section-container mb-0 ws-bg-yellow">
     <div class="row justify-content-center gloabl-statistics">
-        <div class="col-2 text-center single-statistic">
+        <div class="col-4 col-lg-2 col-md-2 col-sm-4 text-center single-statistic">
             <h5>Users</h5>
             <p>{{$userCount}}</p>
         </div>
-        <div class="col-2 text-center single-statistic">
+        <div class="col-4 col-lg-2 col-md-2 col-sm-4 text-center single-statistic">
             <h5>Posts</h5>
             <p>{{$postCount}}</p>
         </div>
-        <div class="col-2 text-center single-statistic">
+        <div class="col-4 col-lg-2 col-md-2 col-sm-4 text-center single-statistic">
             <h5 class="m-0">Total Likes</h5>
             <p>{{$likesCount}}</p>
         </div>
-        <div class="col-2 text-center single-statistic">
+        <div class="col-4 col-lg-2 col-md-2 col-sm-4 text-center single-statistic">
             <h5 class="m-0">Total comments</h5>
             <p>{{$commentCount}}</p>
         </div>
 
-        <div class="col-2 text-center single-statistic">
+        <div class="col-4 col-lg-2 col-md-2 col-sm-4 text-center single-statistic">
             <h5 class="m-0">Submited forms</h5>
             <p>{{$commentCount}}</p>
         </div>
@@ -241,7 +241,7 @@
 
 <div class="container-fluid section-container mb-0 mt-0 ws-bg-dark contact-section">
     <div class="row justify-content-center p-5">
-        <div class="col-12 col-md-8 text-center">
+        <div class="col-12 col-lg-8 col-md-10 text-center">
             <h2>Want contact author of Workshop?</h2>
             <p>If you wish too contact me, you can navigate to contact page and submit form. I will recive your message and ASAP will responde you. Carry on.</p>
             <div class="d-flex justify-content-center mt-4">

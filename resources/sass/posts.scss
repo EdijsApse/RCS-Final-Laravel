@@ -209,6 +209,7 @@
     margin: 0px 30px;
     h1 {
         font-size: 40px;
+        word-break: break-all;
         &:after {
             display: block;
             content: "";
@@ -226,6 +227,7 @@
         font-size: 16px;
         line-height: 30px;
         text-indent: 30px;
+        word-break: break-all;
         &:last-of-type:after {
             width: 100%;
             height: 3px;
@@ -280,8 +282,12 @@
             margin-bottom: 40px;
             .user-image {
                 margin-right: 20px;
+                width: 80px;
+                height: 80px;
+                min-width: 80px;
                 img {
-                    width: 100px;
+                    width: 100%;
+                    height: 100%;
                     border-radius: 50%;
                 }
             }
