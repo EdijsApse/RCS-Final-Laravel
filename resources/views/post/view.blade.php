@@ -1,6 +1,6 @@
 @extends('template')
 
-@section('title', 'Post Title')
+@section('title', $post->title)
 
 @section('main')
 
@@ -42,7 +42,7 @@
                             <p>{{ ($errors->first('comment') ? $errors->first('comment') : "") }}</p>
                         </div>
                         <div class="d-flex justify-content-center">
-                            <button type="submit" class="btn btn-secondary ws-button">Submit</button>
+                            <button type="submit" class="btn btn-secondary ws-button">Add comment</button>
                         </div>
                     </form>
 

@@ -36,9 +36,12 @@
     </div>
     @endif
 
-    <div class="posts box-shadow-container">
+    <div class="posts box-shadow-container position-relative">
         @if(!count($posts))
             <h2 class="section-title text-center">Looks like there is no posts to show</h2>
+            @if(Auth::check())
+                <a href="{{url('post/create')}}" class="btn btn-secondary ws-button-link position-absolute ws-absolute-position-link">Create Post</a>
+            @endif
         @else
             <div class="row justify-content-center position-relative all-posts">
                 <div class="col-12">

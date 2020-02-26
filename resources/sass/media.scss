@@ -413,4 +413,22 @@
     .col-12 {
         padding: 0px !important;
     }
+
+    .intro-content {
+        margin: 0px !important;
+    }
+
+    .post-page {
+        .post-col {
+            .post-content {
+                .post-details {
+                    flex-wrap: wrap !important;
+                    .detail {
+                        margin-top: 10px !important;
+                        border: 0px !important;
+                    }
+                }
+            }
+        }
+    }
 }

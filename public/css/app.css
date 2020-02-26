@@ -11286,8 +11286,15 @@ a {
 }
 
 .ws-img-container {
-  max-height: 150px;
+  min-height: 150px;
+  max-height: 160px;
   overflow: hidden;
+}
+
+.ws-img-container img {
+  height: 160px !important;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .map-container {
@@ -11791,6 +11798,8 @@ a {
   width: 100%;
   height: 100%;
   border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .big-post-page .coment-section .comment .comment-content {
@@ -11852,6 +11861,10 @@ a {
 
 .big-post-page .coment-section .ws-button {
   margin-bottom: 30px;
+}
+
+.big-post-page .posts {
+  min-height: 40vh;
 }
 
 .big-post-page .posts .post p {
@@ -11980,6 +11993,11 @@ a {
 .ws-section-padding {
   padding-top: 30px;
   padding-bottom: 30px;
+}
+
+.user-page {
+  min-height: 40vh;
+  align-items: center;
 }
 
 .user-page h3:after {
@@ -12432,6 +12450,19 @@ a {
 @media only screen and (max-width: 450px) {
   .col-12 {
     padding: 0px !important;
+  }
+
+  .intro-content {
+    margin: 0px !important;
+  }
+
+  .post-page .post-col .post-content .post-details {
+    flex-wrap: wrap !important;
+  }
+
+  .post-page .post-col .post-content .post-details .detail {
+    margin-top: 10px !important;
+    border: 0px !important;
   }
 }
 

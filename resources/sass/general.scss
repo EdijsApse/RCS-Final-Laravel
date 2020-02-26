@@ -371,8 +371,13 @@ button, a {
 }
 
 .ws-img-container {
-    max-height: 150px;
+    min-height: 150px;
+    max-height: 160px;
     overflow: hidden;
+    img {
+        height: 160px !important;
+        object-fit: cover;
+    }
 }
 
 .map-container {

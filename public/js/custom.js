@@ -356,7 +356,7 @@ WS.PageScroller = function()
         this.scrollToBottom = true;
         this.screenHeight = $('html').height();
 
-        if (window.scrollY > this.screenHeight / 6) {
+        if (window.scrollY > this.getChangePoint()) {
 
             this.scrollToBottom = false;
         }
@@ -369,6 +369,11 @@ WS.PageScroller = function()
             this.currentYPosition = e.currentTarget.scrollY;
             this.changeDirection();
         }.bind(this));
+    }
+
+    this.getChangePoint = function()
+    {
+        return (this.screenHeight - window.screen.availHeight) / 2;
     }
 
     this.scrollPage = function()
@@ -386,7 +391,8 @@ WS.PageScroller = function()
 
     this.changeDirection = function()
     {
-        if (this.screenHeight / 6 < this.currentYPosition) {
+
+        if (this.getChangePoint() < this.currentYPosition) {
             this.scrollToBottom = false;
         } else {
             this.scrollToBottom = true;
