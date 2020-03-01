@@ -19,6 +19,9 @@
             <li class="nav-item">
                 <a class="nav-link {{request()->segment(1) == 'contact' ? 'active' : ''}}" href="{{url('contact')}}">Contact Us</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link {{request()->segment(1) == 'improvement' ? 'active' : ''}}" href="{{url('improvement')}}">Improvements</a>
+            </li>
             @if (Auth::check())
             <li class="nav-item">
                 <a class="nav-link {{request()->segment(1) == 'profile' ? 'active' : ''}}" href="{{url('profile')}}">Profile</a>

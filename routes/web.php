@@ -27,7 +27,7 @@ Route::get('/post/create', 'PostController@create')->middleware('auth');
 
 Route::post('/post/create', 'PostController@store')->middleware('auth');
 
-Route::get('/post/{post}', 'PostController@view')->name('about');
+Route::get('/post/{post}', 'PostController@view')->name('about');//@todo check why about?
 
 Route::get('/post/{post}/edit', 'PostController@edit');
 
@@ -46,5 +46,9 @@ Route::get('profile/edit', 'UserController@edit')->middleware('auth');
 Route::get('profile', 'UserController@profile')->middleware('auth');
 
 Route::post('profile', 'UserController@update')->middleware('auth');
+
+Route::post('improvement', 'ImprovementController@store');
+
+Route::get('improvement', 'ImprovementController@index');
 
 Auth::routes();

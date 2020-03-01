@@ -224,9 +224,9 @@ WS.Validator = function()
             this.errors.forEach(function(isError){
                 if (isError) {
                     e.preventDefault();
+                    e.stopImmediatePropagation();
                 }
             })
-
         }.bind(this));
     }
 
@@ -410,6 +410,83 @@ WS.PageScroller = function()
     }
 }
 
+WS.RadioInput = function()
+{
+    this.init = function(input)
+    {
+        this.hiddenInput = input;
+
+        this.input = $(this.hiddenInput).siblings('.ws-radio-container');
+
+        this.inputGroup = $('input[name="'+$(this.hiddenInput).attr('name')+'"]');
+
+        this.isChecked();
+
+        $(this.hiddenInput).siblings();
+
+        $(this.input).on('click', this.setChecked.bind(this));
+    }
+
+    this.setChecked = function()
+    {
+        $(this.inputGroup).removeAttr('checked');
+        $(this.inputGroup).siblings('.ws-radio-container').removeClass('is-checked');
+
+        $(this.input).addClass('is-checked');
+        $(this.hiddenInput).attr('checked', true);
+
+    }
+
+    this.isChecked = function()
+    {
+        if ($(this.hiddenInput).is(":checked")) {
+            $(this.input).addClass('is-checked');
+        }
+    }
+}
+
+WS.AjaxForm = function()
+{
+    this.init = function(form)
+    {
+        this.form = form;
+
+        $(this.form).on('submit', function(e){
+            e.preventDefault();
+            this.submitForm();
+        }.bind(this));
+    }
+
+    this.submitForm = function()
+    {
+        var data = $(this.form).serialize();
+        $.ajax({
+            method:'POST',
+            url: "",
+            dataType: "json",
+            data,
+            success: function(response){
+                if (response.success) {
+                    this.initMessage('Good job! Improvement created');
+                } else {
+                    this.initMessage(response.error);
+                }
+            }.bind(this),
+            error: function(error) {
+                this.initMessage('Looks like error occured! Please contact support team!');
+            }.bind(this)
+        });
+    }
+
+    this.initMessage = function(msg)
+    {
+        var message = new WS.Message;
+        message.init($('.ws-message'));
+        message.updateMessage(msg);
+        message.show();
+        message.autoHide();
+    }
+}
 
 $(document).ready(function(){
     var message = new WS.Message;
@@ -437,5 +514,12 @@ $(document).ready(function(){
     var pageScroller = new WS.PageScroller;
     pageScroller.init($('.scroll-button'));
 
+    $('input[type="radio"]').each(function(){
+        var radioInput = new WS.RadioInput().init($(this));
+    })
+
+    $('form[data-ajax-form]').each(function(){
+        new WS.AjaxForm().init($(this));
+    })
 
 })

@@ -11463,6 +11463,51 @@ a {
   transform: rotate(180deg);
 }
 
+.ws-modal .close {
+  top: 20px;
+  right: 20px;
+  transition: all 0.3s;
+}
+
+.ws-modal .close i {
+  color: #FFC94B;
+  font-size: 26px;
+}
+
+input[type=radio] {
+  display: none;
+}
+
+.ws-radio-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 2px solid #FFC94B;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.ws-radio-container:hover {
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.9);
+  transition: all 0.3s;
+}
+
+.ws-radio-container.is-checked .checked {
+  display: block;
+}
+
+.ws-radio-container .checked {
+  display: none;
+  width: 7px;
+  height: 7px;
+  background-color: #FFC94B;
+  border-radius: 50%;
+}
+
 .post-page .post-col {
   min-height: 40vh;
   height: auto;
@@ -11562,6 +11607,10 @@ a {
 
 .post:hover {
   box-shadow: 0px 0px 9px 1px #afafaf;
+}
+
+.post h3 {
+  text-align: center !important;
 }
 
 .post .post-container {
@@ -11722,7 +11771,6 @@ a {
   font-size: 16px;
   line-height: 30px;
   text-indent: 30px;
-  word-break: break-all;
 }
 
 .big-post-page p:last-of-type:after {
@@ -12464,5 +12512,80 @@ a {
     margin-top: 10px !important;
     border: 0px !important;
   }
+}
+
+.improvement-page .improvement-section {
+  background-color: #fcfcfc;
+  border-radius: 10px;
+}
+
+.improvement-page .improvement {
+  background-color: #FFF;
+  padding: 10px 15px;
+}
+
+.improvement-page .improvement .improvement-header {
+  flex-wrap: wrap;
+}
+
+.improvement-page .improvement .improvement-header:after {
+  content: "";
+  display: block;
+  justify-self: flex-end;
+  height: 3px;
+  background-color: #FFC94B;
+  margin: 7px auto;
+  width: 85%;
+  margin-bottom: 10px;
+}
+
+.improvement-page .improvement .improvement-header .improvement-header-content h5 {
+  color: #4a6163;
+  font-size: 16px !important;
+  margin-bottom: 5px;
+}
+
+.improvement-page .improvement .improvement-header .improvement-header-content h6 {
+  color: #9c9c9c;
+  font-size: 14px !important;
+  margin-bottom: 0px !important;
+}
+
+.improvement-page .improvement .improvement-user-image {
+  width: 45px;
+  height: 45px;
+  min-width: 50px;
+  margin-right: 10px;
+}
+
+.improvement-page .improvement .improvement-details .description {
+  margin-bottom: 5px !important;
+  font-size: 12px !important;
+}
+
+.improvement-page .improvement .improvement-icons span {
+  font-size: 14px !important;
+  color: #9c9c9c !important;
+  margin-bottom: 0px !important;
+}
+
+.improvement-page .improvement .improvement-icons .icon {
+  font-size: 14px !important;
+  color: #4a6163 !important;
+  margin-bottom: 0px !important;
+}
+
+.improvement-page .improvement .improvement-icons .icon i {
+  font-size: 20px;
+  color: #FFC94B;
+  margin-right: 5px;
+}
+
+.improvement-page .improvement-user-image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
