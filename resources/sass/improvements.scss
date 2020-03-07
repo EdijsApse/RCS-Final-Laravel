@@ -3,10 +3,13 @@
     .improvement-section {
         background-color: rgba(252,252,252);
         border-radius: 10px;
+        min-height: 280px;
+        transition: all 0.3s;
     }
 
     .improvement {
         background-color: #FFF;
+        cursor: pointer;
         padding: 10px 15px;
         .improvement-header {
             flex-wrap: wrap;
@@ -37,7 +40,7 @@
         .improvement-user-image {
             width: 45px;
             height: 45px;
-            min-width: 50px;
+            min-width: 45px;
             margin-right: 10px;
         }
         .improvement-details {
@@ -60,6 +63,23 @@
                     font-size: 20px;
                     color: $yellow;
                     margin-right: 5px;
+                }
+            }
+        }
+        .priority {
+            top:5px;
+            right:5px;
+            i {
+                font-size:30px;
+                cursor: pointer;
+                &.low {
+                    color:#FFC94B;
+                }
+                &.medium {
+                    color:#ff7b00;
+                }
+                &.high {
+                    color:#e60505;
                 }
             }
         }

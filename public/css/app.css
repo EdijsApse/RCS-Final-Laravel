@@ -11375,6 +11375,7 @@ a {
 .box-shadow-container {
   box-shadow: 0px 0px 6px 3px #e7e7e7;
   background-color: #FFF;
+  transition: all 0.3s;
 }
 
 .error-page {
@@ -12517,10 +12518,13 @@ input[type=radio] {
 .improvement-page .improvement-section {
   background-color: #fcfcfc;
   border-radius: 10px;
+  min-height: 280px;
+  transition: all 0.3s;
 }
 
 .improvement-page .improvement {
   background-color: #FFF;
+  cursor: pointer;
   padding: 10px 15px;
 }
 
@@ -12554,7 +12558,7 @@ input[type=radio] {
 .improvement-page .improvement .improvement-user-image {
   width: 45px;
   height: 45px;
-  min-width: 50px;
+  min-width: 45px;
   margin-right: 10px;
 }
 
@@ -12579,6 +12583,28 @@ input[type=radio] {
   font-size: 20px;
   color: #FFC94B;
   margin-right: 5px;
+}
+
+.improvement-page .improvement .priority {
+  top: 5px;
+  right: 5px;
+}
+
+.improvement-page .improvement .priority i {
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.improvement-page .improvement .priority i.low {
+  color: #FFC94B;
+}
+
+.improvement-page .improvement .priority i.medium {
+  color: #ff7b00;
+}
+
+.improvement-page .improvement .priority i.high {
+  color: #e60505;
 }
 
 .improvement-page .improvement-user-image img {

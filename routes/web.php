@@ -51,4 +51,6 @@ Route::post('improvement', 'ImprovementController@store');
 
 Route::get('improvement', 'ImprovementController@index');
 
+Route::post('improvement/change-status', 'ImprovementController@update');
+
 Auth::routes();

@@ -80,7 +80,7 @@ class PostController extends Controller
 
         Auth::user()->posts()->create($data);
 
-        return redirect('posts')->withSuccess('Post created successfuly! Good Job!');;
+        return redirect('posts')->withSuccess('Post created successfuly! Good Job!');
 
     }
 

@@ -489,6 +489,8 @@ WS.AjaxForm = function()
 }
 
 $(document).ready(function(){
+    $("body").tooltip({ selector: '[data-toggle=tooltip]' });
+
     var message = new WS.Message;
     message.init($('.ws-message'));
 

@@ -15,10 +15,13 @@
     <div class="row">
         @foreach (Improvement::getStatuses() as $improvementDetail)
             <div class="col-4">
-                <div class="improvement-section py-2">
+                <div class="improvement-section py-2" data-status="{{$improvementDetail['status']}}">
                     <h3 class="text-center">{{$improvementDetail['title']}}</h3>
-                    @foreach ($improvements->filterByStatus($improvementDetail['status']) as $improvement)
-                    <div class="improvement box-shadow-container m-2">
+                    @foreach ($improvements->filterByStatus($improvementDetail['status'])->sortByDesc('priority') as $improvement)
+                    <div class="position-relative improvement box-shadow-container m-2" draggable="true" data-id="{{$improvement->id}}">
+                        <div class="position-absolute priority" data-toggle="tooltip" title="Priority: {{$improvement->getPriority()}}">
+                            <i class="fa fa-fire {{strtolower($improvement->getPriority())}}"></i>
+                        </div>
                         <div class="d-flex flex-row align-items-center improvement-header">
                             <div class="improvement-user-image">
                                 <img src="{{$improvement->getUserPicture()}}" class="" />
@@ -55,14 +58,14 @@
                 <i class="fas fa-times-circle"></i>
             </button>
         <div class="modal-body pt-0">
-            <form class="ws-form" data-ajax-form>
+            <form class="ws-form" method="post" action="/improvement">
                 @csrf
                 <div class="form-group">
                     <Label>Improvement title</Label>
-                    <input type="text" data-min-length="4" autocomplete="off" name="title" class="ws-input" placeholder="Enter improvement title...">
-                    <div class="error-message d-flex align-items-center hidden-error-message">
+                    <input type="text" data-min-length="4" value="{{(old('title') ? old('title') : "")}}" autocomplete="off" name="title" class="ws-input" placeholder="Enter improvement title...">
+                    <div class="error-message d-flex align-items-center {{($errors->first('title') ? "" : "hidden-error-message")}}">
                         <i class="fas fa-exclamation-triangle"></i>
-                        <p></p>
+                        <p>{{ ($errors->first('title') ? $errors->first('title') : "") }}</p>
                     </div>
                 </div>
 
@@ -79,19 +82,19 @@
                             </div>
                         @endforeach
                     </div>
-                    <div class="error-message d-flex align-items-center hidden-error-message">
+                    <div class="error-message d-flex align-items-center {{($errors->first('priority') ? "" : "hidden-error-message")}}">
                         <i class="fas fa-exclamation-triangle"></i>
-                        <p></p>
+                        <p>{{ ($errors->first('priority') ? $errors->first('priority') : "") }}</p>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <Label>Improvement description</Label>
                     <div class="form-group">
-                        <textarea name="description" data-min-length="10" placeholder="If you think you have some idea that will improve this project, feel free to describe it..." class="ws-textarea"></textarea>
-                        <div class="error-message d-flex align-items-center hidden-error-message">
+                        <textarea name="description" data-min-length="10" placeholder="If you think you have some idea that will improve this project, feel free to describe it..." class="ws-textarea">{{(old('description') ? old('description') : "")}}</textarea>
+                        <div class="error-message d-flex align-items-center {{($errors->first('description') ? "" : "hidden-error-message")}}">
                             <i class="fas fa-exclamation-triangle"></i>
-                            <p></p>
+                            <p>{{ ($errors->first('description') ? $errors->first('description') : "") }}</p>
                         </div>
                     </div>
                 </div>
@@ -106,3 +109,6 @@
 
 @endsection
 
+@section('js')
+<script src="/js/improvement.js"></script>
+@endsection

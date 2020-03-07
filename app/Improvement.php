@@ -50,6 +50,19 @@ class Improvement extends Model
     }
 
     /**
+     * Gets Improvement priority!
+     * @return string
+    */
+
+    public function getPriority()
+    {
+        if (array_key_exists($this->priority, self::getPriorities())) {
+            return self::getPriorities()[$this->priority];
+        }
+        return "Low";
+    }
+
+    /**
      *
      * @return string Update time in human readable format
      *
